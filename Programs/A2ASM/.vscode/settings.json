@@ -1,0 +1,10 @@
+{
+    "python.analysis.extraPaths": [
+        "/Users/arash/.vcpkg/artifacts/2139c4c6/debuggers.arm.armdbg/6.9.0/sw/osgi/dbgcore.app/Contents/Eclipse/plugins/com.arm.debug.interpreter.jython.api_6.9.0.202604091206"
+    ],
+    "debug.hideSlowPreLaunchWarning": true,
+    "debug.showInStatusBar": "never",
+    "clangd.arguments": [
+        "--compile-commands-dir=/Users/arash/GT_Labor/ITS-BRD-VSC/Programs/A2ASM/out/A2ASM/ITSboard_Assembly/Debug"
+    ]
+}
