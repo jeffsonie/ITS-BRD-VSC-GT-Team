@@ -1,5 +1,7 @@
 {
     "clangd.arguments": [
         "--compile-commands-dir=/Users/dj/Documents/git_projekte/Gemeinsames_GIT_Repo/ITS-BRD-VSC-GT-Team/Programs/PrimzahlSiebASM/out/PrimzahlSiebASM/ITSboard_Assembly/Debug"
-    ]
+    ],
+    "debug.hideSlowPreLaunchWarning": true,
+    "debug.showInStatusBar": "never"
 }
