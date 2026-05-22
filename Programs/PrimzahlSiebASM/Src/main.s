@@ -61,25 +61,25 @@ main	PROC
         ;-----------------------
         ; ÄUSSERE SCHLEIFE:
         ; ----------------------
-        
-        for (i = 2; i <= 1000; i++)
+
+        for (i = 2; i*i <= 1000; i++)
 
         ; ----------------------------------------
         ; INNERE SCHLEIFE (VIELFACHE STREICHEN)
         ; ----------------------------------------
 
-        ; i*i berechnen und gucken ob j groesser als 1000?
-        if (i*i > 1000) break;
-
         ; Abspeichern des Wertes
         if (sieb_liste[i] == 0) continue;
 
+        ; Berechnet das Vierfache:
+         j= i * i
+        
         ; Wiederholen solange bis die Stelle 1000 erreicht ist und 0 eintragen
         while (j <= 1000)
-        sieb_liste[j] = 0
+             sieb_liste[j] = 0
          
         ; j ist die Stelle in der sieb_liste und wir springen immer weiter
-        j = j + i;
+            j = j + i;
 
         ; ---------------------
         ; 3. ABSPEICHERN
