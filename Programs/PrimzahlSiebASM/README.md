@@ -1,22 +1,32 @@
-1. Aufgabenstellung
-Wir sollen ein Assembler-Programm schreiben, das alle Primzahlen von 2 bis 1000 findet. 
-Dafür nutzen wir den Sieb des Eratosthenes. Das funktioniert wie folgt: Wir nehmen alle Zahlen und streichen nacheinander alle Vielfachen (von 2, von 3, von 5, und so weiter) durch. Was übrig bleibt, sind dann die Primzahlen.  
+Primzahlsieb des Eratosthenes
 
-2. Welche Felder brauchen wir? 
-Wir brauchen zwei Listen im Speicher:  
-Das Sieb-Feld: Eine Liste mit 1000 Plätzen. Der Platz in der Liste steht für die Zahl (z.B Platz 4 steht für die Zahl 4).  
-Das Ergebnis-Feld: Eine zweite Liste, wo wir am Ende die gefundenen Primzahlen reinschreiben. 
+Beschreibung
 
-3. Welchen Typ haben die Elemente? 
-Im Sieb-Feld speichern wir nicht die Zahlen, sondern nur Ja (Primzahl) oder Nein (keine Primzahl). 
-Dafür reicht uns als Datentyp ein einzelnes Byte pro Platz. (1 oder 0)
+Implementierung des Siebs des Eratosthenes in ARM-Assembler.  
+Ermittelt alle Primzahlen von 2 bis 1000 und speichert das Ergebnis in "sieb_liste".
 
-4. Der Pseudocode:
-Gehe zum Sieb-Feld und schreibe bei allen Zahlen von 2 bis 1000 ein Ja (eine 1) rein.
-Nimm die erste Zahl (die 2). Gehe alle Vielfachen dieser Zahl durch (4, 6, 8 und so weiter) und schreibe dort ein Nein (eine 0) rein.
-Gehe zur nächsten Zahl, bei der noch Ja steht (die 3). Streiche wieder alle Vielfachen durch. Wiederhole das, bis du am Ende der Liste bist. 
-Gehe die Liste nochmal durch: Jede Zahl, die jetzt noch ein "Ja" hat, wird ins Ergebnis-Feld geschrieben.
+Programmstruktur
 
-5. Was uns noch schwerfällt:
-Wir wissen noch nicht genau, wie man diese Listen (Arrays) im Speicher von Assembler richtig anlegt.
-Wie genau wir die Schleifen bauen, um die Vielfachen durchzugehen, müssen wir im Praktikum noch klären.
+Schritt 1 Initialisierung
+- Zählschleife (for_01): Setzt alle Einträge der "sieb_liste" (Index 0–1000) auf "1".  
+- Anschließend werden Index 0 und 1 manuell auf "0" gesetzt (keine Primzahlen).
+
+Schritt 2 – Sieb (Eratosthenes)
+- Äußere Schleife (while_01): läuft solange "i*i ≤ 1000", prüft ob "sieb_liste[i] == 1"
+- Innere Schleife (while_02): streicht alle Vielfachen von "i" ab "i*i" aus der Liste
+
+Schritt 3 – Abspeichern
+Noch nicht gefordert. Speicher (ergebnis_liste) ist bereits reserviert.
+
+Kontrollstrukturen
+
+Äußere Schleife (while_01) / for i=2; i*i≤1000; i++
+- Kopf: "MUL R6,R4,R4" -> "CMP R6,#1000" -> "BGT endwhile_01"
+- Körper: "do_while_01"
+
+Flalunterscheidung (if_01) / if sieb_liste[i] != 0
+- LDRB R6,[R0,R4] -> CMP R6,#0 -> BEQ endif_01
+
+Innere Schleife (while_02) / while j<=1000
+- Kopf: CMP R5,#1000 -> BGT endwhile_02
+- Körper: do_while_02
