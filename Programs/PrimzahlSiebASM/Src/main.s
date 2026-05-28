@@ -28,11 +28,12 @@ main    PROC
         LDR  R0, =sieb_liste    ; R0 = Basisadresse
 
         ; ===== SCHRITT 1: alle Einträge auf 1 setzen =====
+        
         MOV  R3, #1
 
 for_01
         MOV  R1, #0             ; i = 0
-        MOV  R2, #1001          ; Endwert
+        MOV  R2, #1001        ; Endwert
 until_01
         CMP  R1, R2             ; i >= 1001? (unsigned)
         BHS  enddo_01           ; HS = Higher or Same (>=)
@@ -48,11 +49,12 @@ enddo_01
         STRB R3, [R0, #1]
 
         ; ===== SCHRITT 2: Vielfache streichen =====
+        
         MOV  R4, #2             ; i = 2
 
 while_01
         MUL  R6, R4, R4         ; i*i
-        CMP  R6, #1000          ; i*i > 1000? (unsigned)
+        CMP  R6, #1000        ; i*i > 1000? (unsigned)
         BHI  endwhile_01        ; HI = Higher (>)
 do_while_01
 if_01
@@ -62,7 +64,7 @@ if_01
 then_01
         MUL  R5, R4, R4         ; j = i*i
 while_02
-        CMP  R5, #1000          ; j > 1000? (unsigned)
+        CMP  R5, #1000        ; j > 1000? (unsigned)
         BHI  endwhile_02        ; HI = Higher (>)
 do_while_02
         MOV  R6, #0
@@ -77,7 +79,7 @@ endwhile_01
 
         ; ===== SCHRITT 3: Abspeichern (noch nicht gefordert) =====
 
-forever B    forever           ; Endlosschleife
+forever B    forever            ; Endlosschleife
         ENDP
 
         ALIGN
