@@ -11,7 +11,7 @@ Alle Einträge auf 1 setzen (erstmal alle als Primzahl annehmen).
 Index 0 und 1 danach auf 0, da keine Primzahlen.
 
 Schritt 2 Sieb (while_01 / while_02)
-- Äußere Schleife: i läuft ab 2, solange i*i ≤ 1000
+- Äußere Schleife: i läuft ab 2, solange i*i größer gleich 1000
 - Ist sieb_liste[i] noch 1, werden alle Vielfachen von i (ab i*i) auf 0 gesetzt
 
 Schritt 3 Abspeichern
