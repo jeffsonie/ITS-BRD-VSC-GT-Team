@@ -38,7 +38,7 @@ main    PROC
 
 for_01
         MOV  R1, #2             ; i = 2 (0 und 1 sind keine Primzahlen)
-        MOV  R2, #1001          ; Endwert
+        MOV  R2, #1001        ; Endwert
 until_01
         CMP  R1, R2             ; i >= 1001? (unsigned)
         BHS  enddo_01           ; HS = Higher or Same (>=)

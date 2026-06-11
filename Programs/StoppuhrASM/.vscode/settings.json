@@ -1,0 +1,7 @@
+{
+    "debug.hideSlowPreLaunchWarning": true,
+    "debug.showInStatusBar": "never",
+    "clangd.arguments": [
+        "--compile-commands-dir=/Users/dj/Documents/git_projekte/Gemeinsames_GIT_Repo/ITS-BRD-VSC-GT-Team/Programs/StoppuhrASM/out/StoppuhrASM/ITSboard_Assembly/Debug"
+    ]
+}
